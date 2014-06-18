@@ -1,0 +1,59 @@
+/* some generic styles for our boxes */
+div {
+    box-sizing: border-box;
+    text-align: center;
+    border: 10px solid red;
+}
+.blockone {
+    width: 100%;
+    clear: both;
+}
+.blocktwo {
+    width: 50%;
+    float: left;
+    border-color: blue;
+}
+.blockthree {
+    width: 50%;
+    float: right;
+    border-color: orange;
+}
+
+/* This is the default state required for using the jsMediaQuery() function */
+
+.state-indicator {
+    left: -999em;
+    position: absolute;
+    top: -999em;
+    z-index: 1025;
+}
+
+/* In each media query, we change the .state-indicator to correspond with the breakpoint */
+@media screen and (max-width: 1024px) {
+    .state-indicator {
+        z-index: 1024;
+    }
+    div {
+        border-style: ridge;
+    }
+}
+@media screen and (max-width: 640px) {
+    .state-indicator {
+        z-index: 640;
+    }
+    div {
+        border-style: dotted;
+    }
+    .blocktwo, .blockthree {
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .state-indicator {
+        z-index: 480;
+    }
+    div {
+        border-style: double;
+    }
+}
